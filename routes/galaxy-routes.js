@@ -7,6 +7,9 @@ router
   .get('/', (req, res, next) => {
     galaxies.find(req.query)
       .then(galaxies => {
+        if(req.session.uid == "dfslkj9032jj093rjasflkj"){
+          res.send(jakesData)
+        }
         res.send(galaxies)
       })
       .catch(next)

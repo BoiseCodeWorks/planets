@@ -26,6 +26,7 @@ router
   .delete('/:id', (req, res, next)=>{
     stars.findByIdAndRemove(req.params.id)
       .then(star => {
+        star.deletedBy = req.session.uid
         res.send({message: 'Successfully Removed'})
       }).catch(next)
   })
